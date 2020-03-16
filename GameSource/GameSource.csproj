@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net471</TargetFramework>
+		<AssemblyName>YourGameName</AssemblyName>
+		<PlatformTarget>anycpu</PlatformTarget>
+	</PropertyGroup>
+  
+	<ItemGroup>
+		<PackageReference Include="ImGui.NET" Version="1.71.0" />
+		<PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.7.1.189" />
+		<ProjectReference Include="..\Nez\Nez.Portable\Nez.csproj" />
+		<ProjectReference Include="..\Nez\Nez.ImGui\Nez.ImGui.csproj" />
+		<ProjectReference Include="..\Nez\Nez.Persistence\Nez.Persistence.csproj" />
+	</ItemGroup>
+	
+	<!-- Default Nez Assets -->
+	<ItemGroup>
+		<Content Include="../Nez/DefaultContent/effects/**/*.mgfxo">
+			<Link>Content/nez/effects/%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="../Nez/DefaultContent/textures/**/*.xnb">
+			<Link>Content/nez/textures/%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Content Include="Content\**">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>  
+	</ItemGroup>
+</Project>
+
